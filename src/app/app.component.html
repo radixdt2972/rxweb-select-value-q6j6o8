@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]="formGroup">
+    <h3>Issue : Dropdown value section defocus controller(using mouse)</h3>
+    <div class="form-group">
+      <label>Select Country </label>
+      <rx-select
+        [(source)]="countries"
+        mainClass="form-control"
+        formControlName="countryId"
+        [controlTabIndex]="2"
+        [selectPlaceholder]="'Select Country'"
+        [attr.component-id]="componentId"
+        [keyValueProps]="['countryName', 'countryId']"
+      >
+      </rx-select>
+      <br />
+      <br />
+      <h5>Dataset:</h5>
+      <ul>
+        <li *ngFor="let record of countries">{{ record.countryName }}</li>
+      </ul>
+
+      <p>
+        Select any country <br />
+        When click on the select controller, a dropdown list will appear with
+        the available options. After selecting an option from the dropdown, the
+        dropdown will close and the controller will lose focus.
+        <br />Expect: select option from dropdown using mouse Dropdown
+        controller should be focus
+      </p>
+    </div>
+  </form>
+</div>
